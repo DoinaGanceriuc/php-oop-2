@@ -79,6 +79,48 @@ class Product
 
 }
 
+class Payment
+{
+    public $type;
+
+    public function __construct($type)
+    {
+        $this->type = $type;
+    }
+
+    public function getPayment()
+    {
+        return 'Il metodo di pagamento scelto e`: ' . $this->type;
+    }
+
+}
+
+class CreditCard extends Payment
+{
+    private $number;
+    private $security_code;
+    private $expiration_month;
+    private $expiration_year;
+
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+    public function setSecurityCode($security_code)
+    {
+        $this->security_code = $security_code;
+    }
+    public function setExpirationMonth($expiration_month)
+    {
+        $this->expiration_month = $expiration_month;
+    }
+    public function setExpirationYear($expiration_year)
+    {
+        $this->expiration_year = $expiration_year;
+    }
+
+}
+
 $user_one = new User('Anna', 'Rossi', 35, 'anna.rossi@example.com');
 $user_one->setPassword('csjfsjdfwjufeweoi');
 
@@ -92,5 +134,12 @@ $pajamas = new Product('Pigiama Love Patch', 'Pigiama lungo con maglia girocollo
 
 var_dump($pajamas);
 var_dump($pajamas->getName());
+
+$payment_first_type = new Payment('credit card');
+var_dump($payment_first_type);
+
+$first_credit_card = new CreditCard('credit');
+$first_credit_card->setSecurityCode('000');
+var_dump($first_credit_card);
 
 ?>
