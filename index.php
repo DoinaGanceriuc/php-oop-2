@@ -29,9 +29,34 @@ class User
 
 }
 
+class UserStatus extends User
+{
+
+    protected $status;
+    public $discount = 0;
+
+    public function setSconto($status)
+    {
+
+        $this->status = $status;
+
+        if ($status === 'premium') {
+            $this->discount = 10;
+        } else if ($status === 'new') {
+            $this->discount = 5;
+        }
+
+    }
+
+}
+
 $user_one = new User('Anna', 'Rossi', 35, 'anna.rossi@example.com');
 $user_one->setPassword('csjfsjdfwjufeweoi');
 
-var_dump($user_one);
+$user_status_one = new UserStatus('Maria', 'Bianchi', 23, 'maria.bianchi@example.com');
+$user_status_one->setPassword('oareiuheogbfjebgshbaej');
+$user_status_one->setSconto('new');
+
+var_dump($user_one, $user_status_one);
 
 ?>
