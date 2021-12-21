@@ -50,6 +50,35 @@ class UserStatus extends User
 
 }
 
+class Product
+{
+    public $name;
+    public $description;
+    public $price;
+    public $type;
+    public $color;
+    public $image_product;
+    public $avaiable;
+
+    public function __construct(string $name, string $description, float $price, string $type, string $color, string $image_product, bool $avaiable = true)
+    {
+        $this->name = $name;
+        $this->description = $description;
+        $this->price = $price;
+        $this->type = $type;
+        $this->color = $color;
+        $this->image_product = $image_product;
+        $this->avaiable = $avaiable;
+
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+}
+
 $user_one = new User('Anna', 'Rossi', 35, 'anna.rossi@example.com');
 $user_one->setPassword('csjfsjdfwjufeweoi');
 
@@ -58,5 +87,10 @@ $user_status_one->setPassword('oareiuheogbfjebgshbaej');
 $user_status_one->setSconto('new');
 
 var_dump($user_one, $user_status_one);
+
+$pajamas = new Product('Pigiama Love Patch', 'Pigiama lungo con maglia girocollo in interlock di cotone con polsini e patch centrale tartan impreziosito da un ricamo dorato. Pantalone in tela di cotone garzata a fantasia tartan.', 39.90, 'nightwear', 'Grigio', 'https: //www.intimissimi.com/dw/image/v2/BHHR_PRD/on/demandware.static/-/Sites-INT_EC_COM/default/dw00d269de/images/PLD879031-F.jpg?sw=1000&sfrm=jpeg');
+
+var_dump($pajamas);
+var_dump($pajamas->getName());
 
 ?>
