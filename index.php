@@ -5,4 +5,33 @@ Provate ad immaginare quali sono le classi necessarie per creare uno shop online
 
 <?php
 
+class User
+{
+    public $name;
+    public $lastname;
+    public $age;
+    public $email;
+    protected $password;
+
+    public function __construct($name, $lastname, $age, $email)
+    {
+        $this->name = $name;
+        $this->lastname = $lastname;
+        $this->age = $age;
+        $this->email = $email;
+    }
+
+    public function setPassword(string $password)
+    {
+        $this->password = hash('md5', $password);
+
+    }
+
+}
+
+$user_one = new User('Anna', 'Rossi', 35, 'anna.rossi@example.com');
+$user_one->setPassword('csjfsjdfwjufeweoi');
+
+var_dump($user_one);
+
 ?>
